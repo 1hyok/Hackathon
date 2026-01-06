@@ -20,17 +20,24 @@
 #### 1. Git Hook (커밋 전 자동 실행)
 커밋 시 자동으로 코드 품질 검사가 실행됩니다.
 
+**⚠️ 주의**: Windows에서 Git Hook은 Git Bash를 사용할 때만 자동 실행됩니다.
+PowerShell이나 CMD에서는 자동 실행되지 않으므로, 수동으로 검사를 실행하세요.
+
 ```bash
+# Git Bash에서 커밋 시 자동 실행
 git commit -m "your message"
 # 자동으로 Ktlint + Detekt 실행
+
+# PowerShell/CMD에서는 수동 실행 필요
+.\scripts\check-code-quality.ps1
 ```
 
-#### 2. Gradle Task (빌드 시 자동 실행)
-빌드 시 자동으로 코드 품질 검사가 실행됩니다.
+#### 2. Gradle Task (빌드 시 자동 포맷팅)
+빌드 시 자동으로 코드 포맷팅이 실행됩니다 (검사는 Git Hook에서 처리).
 
 ```bash
 ./gradlew assembleDebug
-# 자동으로 코드 품질 검사 실행
+# 자동으로 Ktlint 포맷팅 실행 (검사는 Git Hook에서 처리)
 ```
 
 #### 3. 수동 실행

@@ -127,9 +127,9 @@ tasks.register("codeQualityCheck") {
     }
 }
 
-// 빌드 전 자동으로 코드 품질 검사 실행
+// 빌드 전 자동으로 코드 포맷팅 실행 (검사는 Git Hook에서 처리)
+// 참고: 빌드 시마다 검사를 실행하면 빌드가 느려질 수 있으므로,
+//       포맷팅만 자동 실행하고 검사는 Git Hook 또는 수동 실행으로 처리
 tasks.named("preBuild") {
     dependsOn("ktlintFormat")
 }
-
-// 빌드 전 검사는 preBuild에서만 실행

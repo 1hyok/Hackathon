@@ -95,9 +95,10 @@ detekt {
     config.setFrom("$projectDir/../config/detekt.yml")
     baseline = file("$projectDir/../config/detekt-baseline.xml")
     
-    dependencies {
-        detektPlugins(libs.compose.rules.detekt)
-    }
+    // Compose Rules는 나중에 추가 (의존성 문제 해결 후)
+    // dependencies {
+    //     detektPlugins(libs.compose.rules.detekt)
+    // }
 }
 
 // Ktlint 설정

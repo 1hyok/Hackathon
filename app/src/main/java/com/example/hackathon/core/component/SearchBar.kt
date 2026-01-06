@@ -7,6 +7,7 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -34,6 +35,16 @@ fun SearchBar(
             focusedContainerColor = MaterialTheme.colorScheme.surface,
             unfocusedContainerColor = MaterialTheme.colorScheme.surface
         )
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun SearchBarPreview() {
+    SearchBar(
+        query = "",
+        onQueryChange = {},
+        onSearch = {}
     )
 }
 

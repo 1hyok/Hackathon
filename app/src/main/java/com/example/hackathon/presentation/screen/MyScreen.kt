@@ -8,8 +8,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -25,7 +25,7 @@ fun MyScreen(
     viewModel: MyPageViewModel = hiltViewModel(),
     onCombinationClick: (String) -> Unit = {}
 ) {
-    val uiState by viewModel.uiState.collectAsState()
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val myCombinations = uiState.myCombinations
 
     Column(
@@ -99,12 +99,13 @@ fun MyScreen(
                 }
             }
             uiState.error != null -> {
+                val errorMessage = uiState.error ?: "오류가 발생했습니다"
                 Column(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = uiState.error ?: "오류가 발생했습니다",
+                        text = errorMessage,
                         color = MaterialTheme.colorScheme.error
                     )
                     Spacer(modifier = Modifier.height(16.dp))

@@ -6,6 +6,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -21,7 +22,7 @@ fun CreateCombinationScreen(
     viewModel: CreateCombinationViewModel = hiltViewModel(),
     onNavigateBack: () -> Unit = {}
 ) {
-    val uiState by viewModel.uiState.collectAsState()
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     Column(
         modifier = modifier
@@ -113,10 +114,10 @@ fun CreateCombinationScreen(
         )
 
         // 에러 메시지
-        if (uiState.error != null) {
+        uiState.error?.let { error ->
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = uiState.error ?: "",
+                text = error,
                 color = MaterialTheme.colorScheme.error,
                 style = MaterialTheme.typography.bodySmall
             )

@@ -9,8 +9,8 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -27,7 +27,7 @@ fun DetailScreen(
     viewModel: DetailViewModel = hiltViewModel(),
     onNavigateBack: () -> Unit = {}
 ) {
-    val uiState by viewModel.uiState.collectAsState()
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     LaunchedEffect(combinationId) {
         if (combinationId.isNotBlank()) {
@@ -64,6 +64,7 @@ fun DetailScreen(
                 }
             }
             uiState.error != null -> {
+                val errorMessage = uiState.error ?: "오류가 발생했습니다"
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
@@ -72,7 +73,7 @@ fun DetailScreen(
                     verticalArrangement = Arrangement.Center
                 ) {
                     Text(
-                        text = uiState.error ?: "오류가 발생했습니다",
+                        text = errorMessage,
                         color = MaterialTheme.colorScheme.error
                     )
                 }

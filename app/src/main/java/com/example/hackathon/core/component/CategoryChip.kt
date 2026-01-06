@@ -7,6 +7,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.hackathon.domain.entity.Category
 
@@ -49,5 +50,25 @@ fun CategoryChipRow(
             )
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun CategoryChipPreview() {
+    CategoryChip(
+        category = Category.SUBWAY,
+        isSelected = true,
+        onClick = {}
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun CategoryChipRowPreview() {
+    CategoryChipRow(
+        categories = listOf(Category.ALL, Category.SUBWAY, Category.HAIDILAO, Category.CONVENIENCE),
+        selectedCategory = Category.SUBWAY,
+        onCategorySelected = {}
+    )
 }
 

@@ -20,7 +20,8 @@ complexity:
     threshold: 60
   LongParameterList:
     active: true
-    threshold: 6
+    functionThreshold: 6
+    constructorThreshold: 6
 
 style:
   active: true
@@ -37,9 +38,6 @@ comments:
 
 potential-bugs:
   active: true
-  UnusedPrivateMember:
-    active: true
-    ignoreAnnotated: ["Composable"]
 
 performance:
   active: true

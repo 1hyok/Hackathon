@@ -5,11 +5,16 @@
 - Build System: Gradle (Kotlin DSL / .kts)
 - Dependency Management: Version Catalog (libs.versions.toml)
 
+# User Preferences
+- Language: Korean (모든 설명과 주석은 한국어로 작성)
+- Tone: Concise and Technical (간결하고 전문적으로)
+
 # Architecture Guidelines
 - Pattern: MVVM (Model-View-ViewModel)
   - **Model**: Entity, Repository (Domain + Data layers)
   - **View**: Compose Screen (Presentation layer)
   - **ViewModel**: State management and business logic
+  - **Rule**: Logic goes to ViewModel, not UI. UI only observes StateFlow.
 - Architecture: Clean Architecture (Presentation -> Domain -> Data)
   - **data**: Data sources (API, Local DB)
   - **domain**: Business logic (Entities, Repository interfaces)
@@ -17,6 +22,8 @@
 - State Management: Unidirectional Data Flow (UDF) using StateFlow/SharedFlow
 - DI: Hilt (Dagger)
 - Async: Coroutines & Flow
+  - Use `viewModelScope` in ViewModels.
+  - Use `suspend` functions for I/O operations.
 
 # Key Libraries & Versions
 - Image Loading: Coil 3.x (Note: Use `coil3` package, NOT `coil` package)
@@ -37,7 +44,15 @@
    @Composable
    fun MyScreen(...) { ... }
    ```
-5. Use `@Preview` for UI components when possible.
+5. Use `@Preview(showBackground = true)` for UI components when possible.
+6. **Performance Optimization**:
+   - Use `remember` and `derivedStateOf` to avoid unnecessary recompositions.
+   - Always use standard modifiers ordering: `Modifier.size().padding().background().clickable()`.
+   - Avoid hardcoding values; use `MaterialTheme.typography` and `MaterialTheme.colorScheme`.
+   - Prefer `LazyColumn` over `Column` for lists to ensure recycling.
+7. **State Collection**:
+   - Use `collectAsStateWithLifecycle()` instead of `collectAsState()` when observing StateFlow in Compose screens.
+   - Import: `import androidx.lifecycle.compose.collectAsStateWithLifecycle`
 
 ## Kotlin Conventions
 1. Prefer `val` over `var`.
@@ -138,6 +153,8 @@ com.example.hackathon/
   ```
 
 ## Documentation
+- Write all comments and KDoc in Korean (한국어).
+- Explain 'Why' we did this, not just 'What' the code does.
 - Add KDoc for complex business logic.
 - Keep function names descriptive.
 - Add `// 담당자: 이름` comment at the top of files for hackathon collaboration.

@@ -2,11 +2,11 @@ package com.example.hackathon.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.hackathon.R
-import androidx.compose.ui.text.font.Font
 
 // 담당자: 일혁
 // TODO: Pretendard 폰트 리소스를 추가한 뒤 FontFamily를 교체해야 함.
@@ -104,12 +104,20 @@ object FigmaTypography {
 // Material3 Typography에 기본 맵핑 (가장 가까운 Figma 이름으로 대응)
 val Typography =
     Typography(
-        displaySmall = FigmaTypography.Head1Bold, // 24 Bold
-        titleLarge = FigmaTypography.Head2Bold, // 22 Bold
-        titleMedium = FigmaTypography.Sub1Semibold, // 18 SemiBold
-        titleSmall = FigmaTypography.Sub2Semibold, // 16 SemiBold
-        bodyLarge = FigmaTypography.Sub2Medium, // 16 Medium
-        bodyMedium = FigmaTypography.BodySemibold, // 14 SemiBold
-        labelLarge = FigmaTypography.BodyMedium, // 14 Medium
-        labelMedium = FigmaTypography.CaptionMedium, // 12 Medium
+        // Head1_bold (24 Bold)
+        displaySmall = FigmaTypography.Head1Bold,
+        // Head2_bold (22 Bold)
+        titleLarge = FigmaTypography.Head2Bold,
+        // Sub1_semibold (18 SemiBold)
+        titleMedium = FigmaTypography.Sub1Semibold,
+        // Sub2_semibold (16 SemiBold)
+        titleSmall = FigmaTypography.Sub2Semibold,
+        // Sub2_medium (16 Medium)
+        bodyLarge = FigmaTypography.Sub2Medium,
+        // Body_semibold (14 SemiBold)
+        bodyMedium = FigmaTypography.BodySemibold,
+        // Body_medium (14 Medium)
+        labelLarge = FigmaTypography.BodyMedium,
+        // caption_medium (12 Medium)
+        labelMedium = FigmaTypography.CaptionMedium,
     )

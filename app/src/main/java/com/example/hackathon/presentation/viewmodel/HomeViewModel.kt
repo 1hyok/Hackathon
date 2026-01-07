@@ -26,7 +26,7 @@ class HomeViewModel
         private val _searchQuery = MutableStateFlow("")
         val searchQuery: StateFlow<String> = _searchQuery.asStateFlow()
 
-        private val _selectedCategory = MutableStateFlow<Category>(Category.ALL)
+        private val _selectedCategory = MutableStateFlow(Category.ALL)
         val selectedCategory: StateFlow<Category> = _selectedCategory.asStateFlow()
 
         init {

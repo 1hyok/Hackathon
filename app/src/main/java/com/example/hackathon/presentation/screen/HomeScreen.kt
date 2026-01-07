@@ -56,7 +56,6 @@ fun HomeScreen(
             SearchBar(
                 query = searchQuery,
                 onQueryChange = viewModel::updateSearchQuery,
-                onSearch = { viewModel.loadCombinations() },
             )
 
             Spacer(modifier = Modifier.height(16.dp))

@@ -98,6 +98,7 @@ class CombinationRepositoryImpl
                 delay(300)
                 // TODO: 실제 API 호출
                 // combinationService.likeCombination(id)
+                // id 파라미터는 실제 API 호출 시 사용 예정
                 Result.success(Unit)
             } catch (e: Exception) {
                 Result.failure(e)

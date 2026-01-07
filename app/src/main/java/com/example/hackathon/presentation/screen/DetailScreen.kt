@@ -103,6 +103,7 @@ fun DetailScreen(
                     // 이미지
                     if (combination.imageUrl != null) {
                         // TODO: 이미지 표시
+                        // 이미지 로딩 구현 예정
                     }
 
                     // 제목
@@ -124,7 +125,7 @@ fun DetailScreen(
 
                     // 좋아요 버튼
                     Row(
-                        verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
+                        verticalAlignment = Alignment.CenterVertically,
                     ) {
                         IconButton(onClick = { viewModel.toggleLike() }) {
                             Icon(

@@ -46,7 +46,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_17 // Detekt 호환성을 위해 17로 설정
     }
     kotlinOptions {
-        jvmTarget = "20" // Detekt가 Java 21을 지원하지 않으므로 20으로 설정
+        jvmTarget = "17" // Java 컴파일러와 일치시킴 (compileOptions와 동일)
     }
 }
 
@@ -94,10 +94,6 @@ detekt {
     allRules = false
     config.setFrom("$projectDir/../config/detekt.yml")
     baseline = file("$projectDir/../config/detekt-baseline.xml")
-    
-    // Java 21 호환성 문제로 인해 일시적으로 비활성화
-    // TODO: Detekt가 Java 21을 지원하는 버전으로 업그레이드 후 활성화
-    // ignoreFailures.set(true) // 해커톤용 임시 조치
     
     // Compose Rules는 나중에 추가 (의존성 문제 해결 후)
     // dependencies {

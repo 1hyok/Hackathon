@@ -14,7 +14,6 @@ import androidx.compose.ui.unit.dp
 fun SearchBar(
     query: String,
     onQueryChange: (String) -> Unit,
-    onSearch: () -> Unit,
     modifier: Modifier = Modifier,
     placeholder: String = "검색어를 입력하세요",
 ) {
@@ -45,6 +44,5 @@ private fun SearchBarPreview() {
     SearchBar(
         query = "",
         onQueryChange = {},
-        onSearch = {},
     )
 }

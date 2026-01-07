@@ -213,3 +213,23 @@ styles.css
 .Trashes
 Thumbs.db
 desktop.ini
+
+# Android Studio Inspect Code results (XML exports)
+# 루트 디렉토리의 Inspect Code 결과 파일들
+AndroidLint*.xml
+ControlFlowWithEmptyBody.xml
+EditorConfigKeyCorrectness.xml
+EnumValuesSoftDeprecate.xml
+KotlinUnusedImport.xml
+RedundantUnitReturnType.xml
+RemoveExplicitTypeArguments.xml
+RemoveRedundantQualifierName.xml
+SpellCheckingInspection.xml
+UnnecessaryModuleDependencyInspection.xml
+UnstableApiUsage.xml
+unused.xml
+UnusedSymbol.xml
+UnusedVersionCatalogEntry.xml
+XmlUnusedNamespaceDeclaration.xml
+.descriptions.xml
+.xml
